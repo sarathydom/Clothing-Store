@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import SignIn from '../../Component/Sign-in/Sign-in.component'
 const SignInSignUp = () => {
     return (

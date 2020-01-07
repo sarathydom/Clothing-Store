@@ -8,9 +8,9 @@ const FormInput = ({handleChange,lable,...restProps}) =>{
             {...restProps}
         />
         {
-            lable ? (<lable className={`${restProps.value.length ? 'shrink' : ''} form-input-label`}>
+            lable ? (<label className={`${restProps.value.length ? 'shrink' : ''} form-input-label`}>
                 {lable}
-            </lable>):null
+            </label>):null
         }
     </div>
 }
