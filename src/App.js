@@ -29,7 +29,7 @@ class App extends React.Component {
             currentuser:{
               id:onsnapShot.id,
             ...onsnapShot.data()
-          }})
+          }},()=>console.log(this.state))
         });
       }
       this.setState({currentuser:user})
