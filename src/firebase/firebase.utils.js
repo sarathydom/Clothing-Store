@@ -20,8 +20,35 @@ const config ={
 
   export const auth = firebase.auth();
   export const firestore = firebase.firestore(); 
+
   // Google sign in for firebase
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.setCustomParameters({ prompt:'select_account'})
   export const signInWithGoogle = ()=>auth.signInWithPopup(provider);
+
+  // Query for user
+  export const createUserProfileDocument = async (userAuth, additionalData) =>{
+    if(!userAuth) return;
+    // Query inside fire store if it exists
+    // query refference or query snapshot returns from firebase
+    // eaither document or collection
+    // Query referece is current place in database
+    let userRef = firestore.doc(`users/${userAuth.uid}`);
+    let snapShot = await userRef.get();
+    if(!snapShot.exists){
+       const {displayName,email} = userAuth;
+       const createdAt = new Date() ; 
+       try{
+        await userRef.set({
+           displayName, 
+           email,
+           createdAt,
+           ...additionalData
+         })
+       }catch(e){
+         console.log('---- \n Error Creating User : \n',e,'\n ------ \n')
+       } 
+    }
+    return userRef;
+  }
   export default firebase;
