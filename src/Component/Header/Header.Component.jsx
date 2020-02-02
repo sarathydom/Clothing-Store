@@ -32,7 +32,6 @@ const Header = ({ currentuser,hidden })=>{
     </>)
 }
 const mapStateToProps = ({user:{currentUser},cart:{hidden}}) =>{
-    console.log(hidden,'from map state to props header')
     return({
     currentuser : currentUser,
     hidden:hidden

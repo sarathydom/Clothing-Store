@@ -40,7 +40,6 @@ class App extends React.Component {
     this.unSubscribeFromAuth();
   }
   render(){
-    console.log(this.props , 'from app.js')
     return (
       <div >
         <Header/>
