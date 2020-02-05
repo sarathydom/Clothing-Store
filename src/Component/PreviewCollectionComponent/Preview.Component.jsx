@@ -6,8 +6,8 @@ import './Preview.styles.scss'
         <div className="collection-preview ">
             <h1 className="title">{title.toUpperCase()}</h1>
             <div className='preview'>
-            {items.filter((ele,index)=>index<4).map(({id,...otherProps})=>{
-            return <CollectionItem key={id} {...otherProps}/>
+            {items.filter((ele,index)=>index<4).map((item)=>{
+            return <CollectionItem key={item.id} item={item}/>
             })}
             </div>
         </div>
